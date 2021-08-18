@@ -1,0 +1,99 @@
+basePath: /
+definitions:
+  models.GetRequest:
+    properties:
+      key:
+        example: hello
+        type: string
+      value:
+        example: world
+        type: string
+    required:
+    - key
+    type: object
+  models.StorageRequest:
+    properties:
+      Value:
+        example: world
+        type: string
+      key:
+        example: hello
+        type: string
+      status:
+        example: SUCCESS
+        type: string
+    required:
+    - Value
+    - key
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: Ekow API documentation
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Ekow API
+  version: "1.0"
+paths:
+  /get:
+    post:
+      consumes:
+      - application/json
+      description: returns the corresponding value for the key
+      operationId: Get
+      parameters:
+      - description: Some ID
+        in: body
+        name: some_id
+        required: true
+        schema:
+          $ref: '#/definitions/models.StorageRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetRequest'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Retrieve a value
+  /set:
+    post:
+      consumes:
+      - application/json
+      description: add a key value pair
+      operationId: insert
+      parameters:
+      - description: Key
+        in: body
+        name: key
+        required: true
+        schema:
+          $ref: '#/definitions/models.StorageRequest'
+      - description: Value
+        in: body
+        name: value
+        required: true
+        schema:
+          $ref: '#/definitions/models.StorageRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.StorageRequest'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Add a new value to the database
+swagger: "2.0"
