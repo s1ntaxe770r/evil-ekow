@@ -47,7 +47,7 @@ curl -d '{"key":"12","value":"false"}' -H "Content-Type: application/json" -X PO
 ```
 ## OR!
 
-:mag: explore the swagger docs at http://localhost:8080/swagger/index.html
+:mag: explore the swagger docs at http://prod.evil.corp/swagger/index.html
 
 
 
