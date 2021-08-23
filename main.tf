@@ -6,7 +6,6 @@ module "app_deploy" {
   configuration = {
     prod = {
       namespace = "app-${terraform.workspace}"
-
       resources = [
         "${path.root}/manifests/namespace.yaml",
         "${path.root}/manifests/deployment.yaml",
