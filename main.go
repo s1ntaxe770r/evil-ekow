@@ -21,8 +21,7 @@ import (
 
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-
-// @host prod.evil.corp
+// @host http://prod.evil.corp
 // @BasePath /
 func main() {
 	db.Connect()
