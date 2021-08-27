@@ -16,7 +16,6 @@ module "app_deploy" {
         "env" = terraform.workspace
       }
     }
-
     stage = {}
   }
 }
